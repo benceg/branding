@@ -10,18 +10,20 @@
   <body>
     <main>
       <div class="herald">
-        <img class="logo" data-src="./assets/images/crafting.svg" alt="Crafting">
+        <img class="logo" src="./assets/images/crafting.svg" alt="Crafting">
         <div class="subtitle">
             <img src="./assets/images/the-internet.svg" alt="The Internet">
         </div>
       </div>
     </main>
-    <script>
-      const image = document.querySelector('.logo');
-      const swapImage = () => {
-        image.setAttribute('src', image.getAttribute('data-src'));
-      };
-      document.addEventListener('DOMContentLoaded', swapImage);
-    </script>
   </body>
+  <script>
+    const logo = document.querySelector('.logo');
+    const src = logo.getAttribute('src');
+    const guid = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    const bustImageCache = () => {
+      logo.setAttribute('src', `${src}?${guid()}`);
+    };
+    document.addEventListener('DOMContentLoaded', bustImageCache);
+  </script>
 </html>
