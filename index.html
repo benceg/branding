@@ -25,6 +25,7 @@
       const guid = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
       const bustImageCache = () => {
         logo.setAttribute('src', `${src}?${guid()}`);
+        logo.removeAttribute('height');
         requestAnimationFrame(() => {
           subtitle.classList.add('in');
         });
