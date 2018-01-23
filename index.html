@@ -7,13 +7,27 @@
     <link rel="stylesheet" href="./assets/css/css.css">
     <title>Branding</title>
   </head>
-  <body>
+  <body class="easternBlue">
     <main>
-      <div class="herald">
-        <img class="logo" width="354" height="48" src="./assets/images/crafting.svg" alt="Crafting">
-        <div class="subtitle">
-            <img src="./assets/images/the-internet.svg" alt="The Internet">
+      <div class="palette">
+        <span class="malachite"></span>
+        <span class="wattle"></span>
+        <span class="rawSienna"></span>
+        <span class="redDamask"></span>
+      </div>
+      <div class="centerpiece">
+        <div class="herald">
+          <img class="logo" width="354" height="48" src="./assets/images/crafting.svg" alt="Crafting">
+          <div class="subtitle">
+              <img src="./assets/images/the-internet.svg" alt="The Internet">
+          </div>
         </div>
+      </div>
+      <div class="palette">
+        <span class="malachite"></span>
+        <span class="wattle"></span>
+        <span class="rawSienna"></span>
+        <span class="redDamask"></span>
       </div>
     </main>
   </body>
@@ -21,6 +35,7 @@
     (() => {
       const logo = document.querySelector('.logo');
       const subtitle = document.querySelector('.subtitle');
+      const palette = document.querySelectorAll('.palette');
       const src = logo.getAttribute('src');
       const guid = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
       const bustImageCache = () => {
@@ -28,6 +43,9 @@
         logo.removeAttribute('height');
         requestAnimationFrame(() => {
           subtitle.classList.add('in');
+          palette.forEach(p => {
+            p.classList.add('in')
+          });
         });
       };
       document.addEventListener('DOMContentLoaded', bustImageCache);
